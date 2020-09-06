@@ -7,7 +7,7 @@
     </ion-item>
   </ion-card>
 
-  <div *ngIf="citySelect">
+  <div *ngIf="cityDiv && searchedItem?.length">
     <ion-list *ngFor="let city of searchedItem">
       <ion-item (click)="searchItem(city,1)">
         <ion-label>{{city.city_name}}</ion-label>
@@ -28,7 +28,7 @@
 
   </ion-card>
 
-  <div *ngIf="localPSelect">
+  <div *ngIf="localPSelect && Locals?.length">
     <ion-list *ngFor="let local of Locals">
       <ion-item (click)="searchPItem(local,1)">
         <ion-label>{{local.local_name}}</ion-label>
@@ -36,7 +36,7 @@
     </ion-list>
   </div>  
 
-  <div *ngIf="localDSelect">
+  <div *ngIf="localDSelect && Locals?.length">
     <ion-list *ngFor="let local of Locals">
       <ion-item (click)="searchDItem(local,1)">
         <ion-label>{{local.local_name}}</ion-label>

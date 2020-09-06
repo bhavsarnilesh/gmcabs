@@ -21,9 +21,9 @@
               <ion-row>
                 <ion-col size="2" [ngSwitch]="ride.vehicle_id">
                   <span *ngSwitchCase="2"><img src="../../../../assets/icon/car.png" height="40px" width="40px"></span>
-                  <span *ngSwitchCase="1"><img src="../../../../assets/icon/auto.png" height="40px" width="40px"></span>
+                  <span *ngSwitchCase="1"><img src="../../../../assets/icon/bike.png" height="40px" width="40px"></span>
                   <span *ngSwitchCase="3"><img src="../../../../assets/icon/auto.png" height="40px" width="40px"></span>
-                  <span *ngSwitchCase="4"><img src="../../../../assets/icon/auto.png" height="40px" width="40px"></span>
+                  <span *ngSwitchCase="4"><img src="../../../../assets/icon/ape.png" height="40px" width="40px"></span>
                 </ion-col>
                 <ion-col size="8" style="font-size:small;font-weight: bold;">
                   <p>{{ ride.picup_date  | date }}, &nbsp;{{ ride.picup_time | date:'shortTime' }} </p>

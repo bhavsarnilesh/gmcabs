@@ -57,7 +57,7 @@ export class LocalenquiryService {
   }
       
   getAsyncCity(match): Observable<City[]> {
-    if(!match) return;
+    //if(!match) return;
     return this.http.get<City[]>('https://www.gmcabs.in/api/getAsyncCity/'+match)
     .pipe(
       tap(city => console.log('Async city fetched!')),
@@ -66,7 +66,7 @@ export class LocalenquiryService {
   }
 
   getAsyncLocal(local_id, match): Observable<Local[]> {
-    if(!match) return;
+    //if(!match) return;
     return this.http.get<Local[]>('https://www.gmcabs.in/api/getAsyncLocal/'+local_id+'/'+match)
     .pipe(
       tap(locals => console.log('Async Local fetched!')),
