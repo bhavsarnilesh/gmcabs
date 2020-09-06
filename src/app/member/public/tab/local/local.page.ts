@@ -32,6 +32,7 @@ export class LocalPage implements OnInit {
   picup_location:string;
   dropoff_location:string;
   location=false;
+  vehicle=false;
   spinner=false;
   citySelect=true;
   localPSelect=false;
@@ -280,6 +281,7 @@ export class LocalPage implements OnInit {
     this.Locals = [];
     this.localPSelect=false;
     this.localDSelect=true;
+    this.vehicle=true;
     const dVal = (<HTMLInputElement>event.target).value
     console.log("Destination:",dVal);
 

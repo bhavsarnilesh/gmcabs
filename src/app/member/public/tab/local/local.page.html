@@ -43,6 +43,33 @@
     </ion-list>
   </div>
 
+
+
+  <ion-card *ngIf="vehicle">
+    <ion-item class="form-group">
+      <ion-icon name="car-outline" slot="start"></ion-icon>
+      <ion-label>Vehical Type</ion-label>
+      <ion-select  formControlName="vehicle_type" name="vehicle_type" [(ngModel)]="enqiry.vehicle_id" (ionChange)="onChangeVehicleType($event.target.value)">
+        <ion-select-option *ngFor="let VehicleType of VehicleTypes" value="{{VehicleType.vehicle_type_id}}">{{VehicleType.vehicle_type}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="form-group">
+      <ion-icon name="car-outline" slot="start"></ion-icon>
+      <ion-label>Vehical</ion-label>
+      <ion-select  formControlName="vehicle_name" name="vehicle_name" value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="enqiry.vehicle_id">
+        <ion-select-option *ngFor="let Vehicle of Vehicles" value="{{Vehicle.vehicle_name}}">{{Vehicle.vehicle_name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+   
+    <ion-item class="form-group">
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      <ion-label>Date & Time</ion-label>
+      <ion-datetime formControlName="picup_date" name="Pickup_date" displayFormat="DD/MM/YYYY h:mm a" placeholder="Select Date" [(ngModel)]="enqiry.picup_date"></ion-datetime>
+    </ion-item>
+    
+  </ion-card>
+ 
+  
 </ion-content>
 
 
