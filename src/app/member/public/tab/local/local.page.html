@@ -18,12 +18,12 @@
     
     <ion-item class="form-group">
       <ion-icon style="background-color: green;border-radius: 50%;font-size:9px"></ion-icon>&nbsp;&nbsp;
-      <ion-input formControlName="picup_location" name="picup_location" placeholder="Enter Current Location" [(ngModel)]="enqiry.picup_location" #search debounce="100" (ionChange)="_ionPChange($event)"></ion-input>
+      <ion-input formControlName="picup_location" name="picup_location" placeholder="Enter Current Location" [(ngModel)]="picup_location" #search debounce="100" (ionChange)="_ionPChange($event)"></ion-input>
     </ion-item>
 
     <ion-item class="form-group">
       <ion-icon style="background-color: red;border-radius: 50%;font-size:9px"></ion-icon>&nbsp;&nbsp;
-      <ion-input formControlName="dropoff_location" name="dropoff_location" placeholder="Enter Destination Location" [(ngModel)]="enqiry.dropoff_location" #dropoff_location_search debounce="100" (ionChange)="_ionDChange($event)"></ion-input>
+      <ion-input formControlName="dropoff_location" name="dropoff_location" placeholder="Enter Destination Location" [(ngModel)]="dropoff_location" #dropoff_location_search debounce="100" (ionChange)="_ionDChange($event)"></ion-input>
     </ion-item>
 
   </ion-card>
