@@ -181,7 +181,8 @@ export class LocalPage implements OnInit {
     this.localPSelect=false;
     this.localDSelect=false;
     this.submit=false;
-
+    this.Locals= [];
+    this.city=[];
     if (!this.localForm.valid) {
       return false;
     } else {
@@ -265,7 +266,7 @@ export class LocalPage implements OnInit {
   _ionPChange($event) {
     this.Locals = [];
     this.localPSelect=true;
-    const pVal = (<HTMLInputElement>event.target).value
+    let pVal = (<HTMLInputElement>event.target).value
     console.log("Location:",pVal);
 
     this.localenquiryService.getAsyncLocal(this.cityid,pVal).subscribe((res) => {
@@ -279,6 +280,7 @@ export class LocalPage implements OnInit {
     this.searchedPItem = this.Locals;
 
     if (pVal && pVal.trim() != '') {
+      if (!this.searchedPItem) return [];
       this.searchedPItem = this.searchedPItem.filter((item: any) => {
         return (item.local_name.toLowerCase().indexOf(pVal.toLowerCase()) > -1);
       })
@@ -290,7 +292,7 @@ export class LocalPage implements OnInit {
     this.localPSelect=false;
     this.localDSelect=true;
     
-    const dVal = (<HTMLInputElement>event.target).value
+    let dVal = (<HTMLInputElement>event.target).value
     console.log("Destination:",dVal);
 
     this.localenquiryService.getAsyncLocal(this.cityid,dVal).subscribe((res) => {
@@ -301,10 +303,11 @@ export class LocalPage implements OnInit {
     })
 
 
-    this.searchedPItem = this.Locals;
+    this.searchedDItem = this.Locals;
 
     if (dVal && dVal.trim() != '') {
-      this.searchedPItem = this.searchedPItem.filter((item: any) => {
+      if (!this.searchedDItem) return [];
+      this.searchedDItem = this.searchedDItem.filter((item: any) => {
         return (item.local_name.toLowerCase().indexOf(dVal.toLowerCase()) > -1);
       })
     }
@@ -315,8 +318,8 @@ export class LocalPage implements OnInit {
 
 
   searchPItem(item,num) {
-    this.Locals = [];
-    console.log('searchPItem',this.picup_location=item.local_id);
+    //this.Locals = [];
+    console.log('searchPItem',item.local_id);
     this.picup_location=item.local_name;
     this.localPSelect=false;
     this.localDSelect=false;  
@@ -324,7 +327,8 @@ export class LocalPage implements OnInit {
   }
 
   searchDItem(item,num) {
-    this.Locals = [];
+    //this.Locals = [];
+    console.log('searchPItem',item.local_id);
     this.dropoff_location=item.local_name;
     this.localPSelect=false;
     this.localDSelect=false;
