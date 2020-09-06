@@ -37,6 +37,7 @@ export class LocalPage implements OnInit {
   citySelect=true;
   localPSelect=false;
   localDSelect=false;
+  submit=false;
   Locals: any = [];
   city:City[];
   VehicleTypes: any = [];
@@ -282,6 +283,7 @@ export class LocalPage implements OnInit {
     this.localPSelect=false;
     this.localDSelect=true;
     this.vehicle=true;
+    this.submit=true;
     const dVal = (<HTMLInputElement>event.target).value
     console.log("Destination:",dVal);
 
