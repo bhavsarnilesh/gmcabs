@@ -3,7 +3,7 @@
   <ion-card>
     <ion-item class="form-group">
       <ion-icon name="location-outline" style="border-radius: 50%;font-size:19px"></ion-icon>&nbsp;&nbsp;
-      <ion-input formControlName="city_name" name="city_name" placeholder="Enter Your City" [(ngModel)]="name" #search debounce="100" (ionChange)="_ionChange($event)"></ion-input>
+      <ion-input formControlName="city_name" name="city_name" placeholder="Enter Your City" [(ngModel)]="name" #search  (ionChange)="_ionChange($event)"></ion-input>
     </ion-item>
   </ion-card>
 

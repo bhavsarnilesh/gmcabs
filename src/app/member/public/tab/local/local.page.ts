@@ -174,6 +174,13 @@ export class LocalPage implements OnInit {
 
   onFormSubmit() {
     this.spinner=true;
+    this.location=false;
+    this.vehicle=false;
+    this.spinner=false;
+    this.citySelect=true;
+    this.localPSelect=false;
+    this.localDSelect=false;
+    this.submit=false;
 
     if (!this.localForm.valid) {
       return false;
@@ -220,6 +227,7 @@ export class LocalPage implements OnInit {
     this.searchedItem = this.city;
 
     if (val && val.trim() != '') {
+      if (!this.searchedItem) return [];
       this.searchedItem = this.searchedItem.filter((item: any) => {
         return (item.city_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
@@ -279,11 +287,9 @@ export class LocalPage implements OnInit {
   
 
   _ionDChange($event) {
-    this.Locals = [];
     this.localPSelect=false;
     this.localDSelect=true;
-    this.vehicle=true;
-    this.submit=true;
+    
     const dVal = (<HTMLInputElement>event.target).value
     console.log("Destination:",dVal);
 
@@ -309,7 +315,7 @@ export class LocalPage implements OnInit {
 
 
   searchPItem(item,num) {
-   
+    this.Locals = [];
     console.log('searchPItem',this.picup_location=item.local_id);
     this.picup_location=item.local_name;
     this.localPSelect=false;
@@ -318,10 +324,12 @@ export class LocalPage implements OnInit {
   }
 
   searchDItem(item,num) {
-
+    this.Locals = [];
     this.dropoff_location=item.local_name;
     this.localPSelect=false;
     this.localDSelect=false;
+    this.vehicle=true;
+    this.submit=true;
     
   }
 
